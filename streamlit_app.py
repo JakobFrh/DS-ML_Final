@@ -49,7 +49,8 @@ if st.session_state.current_question < len(questions):
         st.markdown(question)
 
     # Accept user input
-    if prompt := st.chat_input("Your answer:"):
+    prompt = st.chat_input("Your answer:")
+    if prompt:
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
         st.session_state.answers.append(prompt)
@@ -74,7 +75,3 @@ else:
         st.session_state.current_question = 0
         st.session_state.answers = []
         st.session_state.messages = []
-
-# Display the chat input box only if there are more questions to ask
-if st.session_state.current_question < len(questions):
-    st.chat_input("Your answer:")
