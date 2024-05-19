@@ -44,7 +44,10 @@ for message in st.session_state.messages:
 if st.session_state.current_question < len(questions):
     # Ask the next question
     question = questions[st.session_state.current_question]
-    st.session_state.messages.append({"role": "assistant", "content": question})
+    
+    if len(st.session_state.messages) == 0 or st.session_state.messages[-1]["content"] != question:
+        st.session_state.messages.append({"role": "assistant", "content": question})
+    
     with st.chat_message("assistant"):
         st.markdown(question)
 
