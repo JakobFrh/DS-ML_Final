@@ -1,70 +1,38 @@
 import streamlit as st
-import requests
-from bs4 import BeautifulSoup
-import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.naive_bayes import MultinomialNB
-import nltk
-from nltk.corpus import stopwords
-import re
-from joblib import load
+import torch
+from transformers import CamembertForSequenceClassification, CamembertTokenizer
+import sentencepiece as spm
 
-nltk.download('stopwords')
+# Load the SentencePiece model
+sp = spm.SentencePieceProcessor()
+sp.load('/mnt/data/sentencepiece.bpe.model')
 
-# Function to clean and preprocess the text
-def preprocess_text(text):
-    text = re.sub(r'\W', ' ', text)
-    text = re.sub(r'\s+', ' ', text)
-    text = text.lower()
-    return text
+# Load pre-trained CamemBERT model and tokenizer
+tokenizer = CamembertTokenizer.from_pretrained('models/camembert_tokenizer')
+model = CamembertForSequenceClassification.from_pretrained('models/camembert_model')
 
-# Function to scrape news articles
-def scrape_news_articles(url):
-    response = requests.get(url)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    articles = []
-    for item in soup.find_all('article'):
-        headline = item.find('h1', class_='headline')
-        if headline:
-            headline_text = headline.get_text(strip=True)
-            article_url = headline.find('a')['href']
-            article_response = requests.get(article_url)
-            article_soup = BeautifulSoup(article_response.content, 'html.parser')
-            article_content = article_soup.find('div', class_='article-content')
-            if article_content:
-                article_text = article_content.get_text(strip=True)
-                articles.append((headline_text, article_text))
-    return articles
-
-# Function to classify the difficulty of the text
-def classify_difficulty(text, model, vectorizer):
-    processed_text = preprocess_text(text)
-    X = vectorizer.transform([processed_text])
-    predicted_class = model.predict(X)
-    return predicted_class[0]
-
-# Load pre-trained classifier and vectorizer
-vectorizer = load('models/vectorizer.joblib')
-model = load('models/model.joblib')
+# Function to tokenize text using SentencePiece
+def tokenize_with_sentencepiece(text):
+    pieces = sp.encode_as_pieces(text)
+    ids = sp.encode_as_ids(text)
+    return pieces, ids
 
 # Streamlit app
-st.title('French News Article Recommender')
-st.write('Enter the desired level of language difficulty:')
+st.title('French Sentence Difficulty Classifier with CamemBERT and SentencePiece')
+st.write('Enter a French sentence to classify its difficulty level:')
 
-difficulty_level = st.selectbox('Difficulty Level', ['Easy', 'Medium', 'Hard'])
-
-if st.button('Find Article'):
-    url = 'https://newswebsite.com/latest'  # Replace with the actual news website URL
-    articles = scrape_news_articles(url)
-    
-    if articles:
-        for headline, article in articles:
-            difficulty = classify_difficulty(article, model, vectorizer)
-            if difficulty == difficulty_level.lower():
-                st.write(f'### {headline}')
-                st.write(article)
-                break
-        else:
-            st.write('No articles found for the desired difficulty level.')
+sentence = st.text_input('Sentence')
+if st.button('Classify'):
+    if sentence:
+        pieces, ids = tokenize_with_sentencepiece(sentence)
+        inputs = tokenizer(sentence, return_tensors='pt', padding=True, truncation=True)
+        with torch.no_grad():
+            outputs = model(**inputs)
+        predicted_class = torch.argmax(outputs.logits, dim=1).item()
+        
+        # Assuming class indices: 0 - Easy, 1 - Medium, 2 - Hard
+        difficulty_map = {0: 'Easy', 1: 'Medium', 2: 'Hard'}
+        st.write(f'The difficulty level of the sentence is: {difficulty_map[predicted_class]}')
+        st.write(f'Tokenized Sentence: {pieces}')
     else:
-        st.write('No articles found.')
+        st.write('Please enter a sentence to classify.')
