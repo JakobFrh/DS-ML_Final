@@ -1,6 +1,7 @@
 import streamlit as st
 from transformers import CamembertTokenizer, CamembertForSequenceClassification
 import torch
+pip install sentencepiece
 
 # Load model and tokenizer
 model_dir = "model"
