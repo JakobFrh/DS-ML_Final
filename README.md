@@ -22,13 +22,13 @@ We try to augmente the data by using several different techniques. We can mentio
 
 
 **Step 4 : LLM**
-We then dive into the world of large language model. First using distilbert-multilanguage, was the first step to increase the accuracy of our final prediction. Trying different epoch and bach size allow us to find the good argument not to overfit the training set and to learn as much as possible from it. In a second phase, we implemented the CamemBERT-base model, which is specifically design to understand French sentences. This allow us to increase our accuracy up to 59% (output available on the github.
+We then dive into the world of large language model. First using distilbert-multilanguage, was the first step to increase the accuracy of our final prediction. Trying different epoch and bach size allow us to find the good argument not to overfit the training set and to learn as much as possible from it. In a second phase, we implemented the CamemBERT-base model, which is specifically design to understand French sentences. This allow us to increase our accuracy up to 59%.
 
 **Step 5 : Merging different Idea**
 
 
 Taking the assumption that the data are more or less equally weighted like in the train dataset, we noticed that the Camembert model struggle a bit more to predict the extrem values A1/C2. While we the pipeline results where excellent with those 2 categories. Therefor, we decided to focus on the pipeline and we try to improve it's efficieny on A1/C2 predictions.
-We mentionne before that we have try unsuccessfully data augmentation, however we had the idea of a small trick. To virtually increased the data. Instead of using LLM on 6 labels we only train it on A, B or C label, allowing us to have 4800 data for 3 labels (output available on the github : ABC_CLASSIFICATION.csv). With the new ABC classification we now train our pipeline model to recognize A1 from A2 in the A label and C2 from C1 in the C label. Since we want to have a prediction as accurate as possible we use the whole dataset to train our model. By relabelling all the train data C1 except for the C2 data we train on a larger dataset than if we used only the C1/C2 data to train the pipeline. This might increase a lot the number of false-negative but the predicted C2 have high chance to be actual C2. This was only possible because A1 and C2 are the extrem values. Taking into account that we will only keep the C2 values for the LLM adjustment, it's not a big deal to have too many C1. However we need to be sure that if we change a data on the LLM, it's supposed to be changed.
+We mentionne before that we have try unsuccessfully data augmentation, however we had the idea of a small trick. To virtually increased the data. Instead of using LLM on 6 labels we only train it on A, B or C label, allowing us to have 4800 data for 3 labels. With the new ABC classification we now train our pipeline model to recognize A1 from A2 in the A label and C2 from C1 in the C label. Since we want to have a prediction as accurate as possible we use the whole dataset to train our model. By relabelling all the train data C1 except for the C2 data we train on a larger dataset than if we used only the C1/C2 data to train the pipeline. This might increase a lot the number of false-negative but the predicted C2 have high chance to be actual C2. This was only possible because A1 and C2 are the extrem values. Taking into account that we will only keep the C2 values for the LLM adjustment, it's not a big deal to have too many C1. However we need to be sure that if we change a data on the LLM, it's supposed to be changed.
 
 <img width="999" alt="Capture d’écran 2024-05-21 à 14 38 37" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/765d923a-e09e-4f22-b2fc-3d80ea0422f5">
 
@@ -38,3 +38,8 @@ We use our LLM corrector to get A1 and C2 data out of the ABC classification. Wi
 
 <img width="1079" alt="Merged model" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/fb343d89-46c5-40fd-a101-5708e521718c">
 
+**Guide of Github**
+  -  Model : Model for the streamlit
+  -  ABC_CLASSIFICATION : Output of the ABC classifier
+  -  CAMEMBERT : Output of the CamemBERT classifier with 6 labels
+  -  ML_MODEL : The overall model with all the pipelines and differents classifier
