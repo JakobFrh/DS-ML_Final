@@ -86,13 +86,13 @@ if st.button("Let's go"):
         except Exception as e:
             st.error(f"An error occurred during classification: {e}")
 
-st.sidebar.title("About")
-st.sidebar.info(
-    """
-    This application uses a CamemBERT model to classify text into different levels of French proficiency. 
-    Based on the predicted level, a video is recommended to help improve your French skills.
-    """
-)
+# st.sidebar.title("About")
+# st.sidebar.info(
+#     """
+#     This application uses a CamemBERT model to classify text into different levels of French proficiency. 
+#     Based on the predicted level, a video is recommended to help improve your French skills.
+#     """
+# )
 
 st.sidebar.title("Instructions")
 st.sidebar.write(
