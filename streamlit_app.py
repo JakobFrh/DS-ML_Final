@@ -8,21 +8,21 @@ import urllib.error
 # Load model and tokenizer
 model_dir = "model"
 try:
-    st.write("Loading tokenizer...")
+    # st.write("Loading tokenizer...")
     tokenizer = CamembertTokenizer.from_pretrained(model_dir)
-    st.write("Tokenizer loaded successfully")
+    # st.write("Tokenizer loaded successfully")
     
     # Log special tokens
     special_tokens = tokenizer.special_tokens_map
-    st.write(f"Special tokens: {special_tokens}")
+    # st.write(f"Special tokens: {special_tokens}")
 
-    st.write("Loading model...")
+    # st.write("Loading model...")
     model = CamembertForSequenceClassification.from_pretrained(model_dir)
-    st.write("Model loaded successfully")
+    # st.write("Model loaded successfully")
 
-    st.success("Model and tokenizer loaded successfully")
+    # st.success("Model and tokenizer loaded successfully")
 except ImportError as e:
-    st.error(f"Import error: {e}")
+    # st.error(f"Import error: {e}")
     st.stop()
 except Exception as e:
     st.error(f"An error occurred while loading the model and tokenizer: {e}")
@@ -46,14 +46,14 @@ url = "https://raw.githubusercontent.com/JakobFrh/DS-ML_Final/main/Video_french.
 df = load_dataframe(url)
 
 if df is not None:
-    st.write("Dataframe loaded successfully. Here are the columns:")
-    st.write(df.columns.tolist())
+    # st.write("Dataframe loaded successfully. Here are the columns:")
+    # st.write(df.columns.tolist())
 else:
     st.error("Failed to load the dataframe.")
     st.stop()
 
 # Streamlit app
-st.title("Camembert Model for Sequence Classification")
+st.title("Les Molières du ballon")
 
 text = st.text_area("Enter text:", "")
 
@@ -62,16 +62,16 @@ if st.button("Classify"):
         st.error("Please enter some text.")
     else:
         try:
-            st.write(f"Input text: {text}")
+            # st.write(f"Input text: {text}")
             inputs = tokenizer(text, return_tensors="pt")
-            st.write(f"Tokenized inputs: {inputs}")
+            # st.write(f"Tokenized inputs: {inputs}")
 
             outputs = model(**inputs)
             logits = outputs.logits
-            st.write(f"Model outputs (logits): {logits}")
+            # st.write(f"Model outputs (logits): {logits}")
 
             predicted_class = torch.argmax(logits, dim=1).item()
-            st.write(f"Predicted class: {predicted_class}")
+            # st.write(f"Predicted class: {predicted_class}")
 
             # Check and use the correct column name for difficulty level
             if 'Level' in df.columns:
