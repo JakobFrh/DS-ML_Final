@@ -28,3 +28,6 @@ We then dive into the world of large language model. First using distilbert-mult
 Step 5 : Merging different Idea
 
 We mentionne before that we have try unsuccessfully data augmentation, however we had the idea of a small trick. To virtually increased the data. Instead of using LLM on 6 labels we only train it on A, B or C label, allowing us to have 4800 data for 3 labels. Once this segmentation was done, we use our very accurate pipeline model to get A1 and C2 data out of the ABC classification. With an accuracy of 74% on 145 data for A1 and an accuracy of 88% on 50 C2 data, we will then use those data to enhance our LLM model. The use of LLM model on the C label gives an accuracy of 73,2% on 146 label. We notice that if add this on top of the C2 pipeline, this also increase by a very bit the accuracy of the overall model, reaching an overall accuracy of 60.2%. This ABC classification with pipeline and camembert increase the overall accuracy of the model by about a 1%, however it add a lot of computation power and the question : « is it worth it ? » could arise. That why we decided to stick with the simple LLM for our streamlit application.
+
+<img width="1079" alt="Merged model" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/fb343d89-46c5-40fd-a101-5708e521718c">
+
