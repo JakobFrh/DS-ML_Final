@@ -30,7 +30,7 @@ except Exception as e:
 # Load the dataframe from GitHub
 @st.cache
 def load_dataframe():
-    url = "https://raw.githubusercontent.com/yourusername/yourrepo/main/video_french.csv"
+    url = "https://raw.githubusercontent.com/JakobFrh/DS-ML_Final/main/Video_french.csv"
     df = pd.read_csv(url)
     return df
 
