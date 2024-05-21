@@ -1,17 +1,17 @@
-﻿id;Player;Level;Video
-1;Zlatan Ibrahimovic;0; https://www.youtube.com/watch?v=K20DTv88Sng 
-2;Frank Ribéry;0;https://www.youtube.com/watch?v=odYsZqx5suU 
-3;Kevin de Bruyne;3;https://www.youtube.com/watch?v=ZXog1z-0K14 
-4;Rafael Leao ;3;https://www.youtube.com/shorts/U_OKgH8TnNg 
-5;Christian Constantin;4;https://www.youtube.com/watch?v=_5MujJqqYro 
-6;Malaise D'un supporter ;0;https://www.youtube.com/watch?v=oaERSdjW2Zc 
-7;Leonardo Jardim;1;https://www.youtube.com/watch?v=UA4yMqL-jKc 
-8;Frank Ribéry ;2;https://www.youtube.com/watch?v=4-my1r_OB3A 
-9;Mbappe;5;https://www.youtube.com/watch?v=LcVRmZSGCd8 
-10;Mbappe;5;https://www.youtube.com/watch?v=lZzvb738C_4 
-11;Thierry Henry;5;https://www.youtube.com/watch?v=laJeumMiOy0 
-12;Cantona;4;https://www.youtube.com/shorts/_CBYlVIalD8 
-13;Frank Ribéry;2;https://www.youtube.com/watch?v=KnlB8TxkGyQ
-14;Adil Rami;4;https://www.youtube.com/watch?v=lOwYFCWvXGc 
-15;Mario Balotelli;1;https://youtu.be/dvsWvDEIsT8?si=FBmNbQVz5Q9ifD84&t=101 
-16;Jose Mourinho ;2;https://youtu.be/ss4esS9osKg?si=ZcaaznFzV00lxEOg&t=255
+id,Player,Level,Video
+1,Zlatan Ibrahimovic,0, https://www.youtube.com/watch?v=K20DTv88Sng 
+2,Frank Ribéry,0,https://www.youtube.com/watch?v=odYsZqx5suU 
+3,Kevin de Bruyne,3,https://www.youtube.com/watch?v=ZXog1z-0K14 
+4,Rafael Leao ,3,https://www.youtube.com/shorts/U_OKgH8TnNg 
+5,Christian Constantin,4,https://www.youtube.com/watch?v=_5MujJqqYro 
+6,Malaise D'un supporter ,0,https://www.youtube.com/watch?v=oaERSdjW2Zc 
+7,Leonardo Jardim,1,https://www.youtube.com/watch?v=UA4yMqL-jKc 
+8,Frank Ribéry ,2,https://www.youtube.com/watch?v=4-my1r_OB3A 
+9,Mbappe,5,https://www.youtube.com/watch?v=LcVRmZSGCd8 
+10,Mbappe,5,https://www.youtube.com/watch?v=lZzvb738C_4 
+11,Thierry Henry,5,https://www.youtube.com/watch?v=laJeumMiOy0 
+12,Cantona,4,https://www.youtube.com/shorts/_CBYlVIalD8 
+13,Frank Ribéry,2,https://www.youtube.com/watch?v=KnlB8TxkGyQ
+14,Adil Rami,4,https://www.youtube.com/watch?v=lOwYFCWvXGc 
+15,Mario Balotelli,1,https://youtu.be/dvsWvDEIsT8?si=FBmNbQVz5Q9ifD84&t=101 
+16,Jose Mourinho ,2,https://youtu.be/ss4esS9osKg?si=ZcaaznFzV00lxEOg&t=255
