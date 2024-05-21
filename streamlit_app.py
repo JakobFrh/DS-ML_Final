@@ -8,21 +8,9 @@ import urllib.error
 # Load model and tokenizer
 model_dir = "model"
 try:
-    # st.write("Loading tokenizer...")
     tokenizer = CamembertTokenizer.from_pretrained(model_dir)
-    # st.write("Tokenizer loaded successfully")
-    
-    # Log special tokens
-    special_tokens = tokenizer.special_tokens_map
-    # st.write(f"Special tokens: {special_tokens}")
-
-    # st.write("Loading model...")
     model = CamembertForSequenceClassification.from_pretrained(model_dir)
-    # st.write("Model loaded successfully")
-
-    # st.success("Model and tokenizer loaded successfully")
 except ImportError as e:
-    # st.error(f"Import error: {e}")
     st.stop()
 except Exception as e:
     st.error(f"An error occurred while loading the model and tokenizer: {e}")
@@ -46,14 +34,27 @@ url = "https://raw.githubusercontent.com/JakobFrh/DS-ML_Final/main/Video_french.
 df = load_dataframe(url)
 
 if df is not None:
-    st.write("Welcome to RiBERTy, your french assesment assistant.")
-    # st.write(df.columns.tolist())
+    st.sidebar.success("Welcome to RiBERTy, your French assessment assistant.")
+    st.sidebar.write("Use this app to assess your French level and get matched with a video based on your proficiency.")
 else:
     st.error("Failed to load the dataframe.")
     st.stop()
 
 # Streamlit app
 st.title("Les Molières du ballon")
+
+st.markdown(
+    """
+    <style>
+    .big-font {
+        font-size:20px !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown('<p class="big-font">Enter your text below to assess your French level and get a recommended video.</p>', unsafe_allow_html=True)
 
 text = st.text_area("Enter text:", "")
 
@@ -62,21 +63,12 @@ if st.button("Classify"):
         st.error("Please enter some text.")
     else:
         try:
-            # st.write(f"Input text: {text}")
             inputs = tokenizer(text, return_tensors="pt")
-            # st.write(f"Tokenized inputs: {inputs}")
-
             outputs = model(**inputs)
             logits = outputs.logits
-            # st.write(f"Model outputs (logits): {logits}")
-
             predicted_class = torch.argmax(logits, dim=1).item()
-            # st.write(f"Predicted class: {predicted_class}")
 
-            # Check and use the correct column name for difficulty level
             if 'Level' in df.columns:
-                matching_videos = df[df['Level'] == predicted_class]
-            elif 'Level' in df.columns:  # If the column name is 'Level'
                 matching_videos = df[df['Level'] == predicted_class]
             else:
                 st.error("No matching column for difficulty level found in the dataframe.")
@@ -86,9 +78,26 @@ if st.button("Classify"):
                 selected_video = matching_videos.sample(n=1).iloc[0]
                 player_name = selected_video["Player"]
                 video_url = selected_video["Video"]
-                st.write(f"Your French level corresponds to: {player_name}")
+                st.write(f"Your French level corresponds to: **{player_name}**")
                 st.video(video_url)
             else:
                 st.error("No videos found for the predicted difficulty level.")
         except Exception as e:
             st.error(f"An error occurred during classification: {e}")
+
+st.sidebar.title("About")
+st.sidebar.info(
+    """
+    This application uses a CamemBERT model to classify text into different levels of French proficiency. 
+    Based on the predicted level, a video is recommended to help improve your French skills.
+    """
+)
+
+st.sidebar.title("Instructions")
+st.sidebar.write(
+    """
+    1. Enter a piece of French text in the text area.
+    2. Click the 'Classify' button to assess your level.
+    3. Watch the recommended video to improve your French!
+    """
+)
