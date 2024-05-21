@@ -6,17 +6,21 @@ The project conducted was aiming to identify the level of a French sentence usin
 To build the model we add a train data of 4800 words and a test data of 1200. Here are the steps we went through to build the more accurate model possible.
 
 Step 1 : Discovery 
+
 The first steps of discovery led to the use of basics model like linear regression, decision tree or random forest. Those model show an overall poor accuracy. On the other hand it was surprisingly not so bad with extreme values as A1 or C2. We went further on the model, trying stop words removal but this decreased accuracy. Then we tried lemmatization, bi-gram and tri-gram and it appears that adding bi-gram to the tokenizer is our best option. Also moving from linear regression and other models to support vector machine with SVC (support vector classifier) was the most efficient model. Mixing it with bi-gram allow us to reach an accuracy of 47,1%. 
 
 Step 2 : Pipeline 
+
 Diving deeper into basic model we implemented a pipeline where we take into account, the number of word, the number of unique words and the number of comas. We also tried to implement special character count (# »!?’`^+…) and a to take into account the different verb tense but those decrease the accuracy.  
 ￼
 
 Step 3 : Data augmentation
+
 We try to augmente the data by using several different techniques. We can mention here back translation that we didn’t keep because of very high computation costs, synonyms decrease the accuracy of the mode, GPT3.5 API really gave poor sentences variety that decreased the model accuracy as well. Therefore we decided not to try further on data augmentation. 
 
 
 Step 4 : LLM 
+
 We then dive into the world of large language model. First using distilbert-multilanguage, was the first step to increase the accuracy of our final prediction. Trying different epoch and bach size allow us to find the good argument not to overfit the training set and to learn as much as possible from it. In a second phase, we implemented the CamemBERT-base model, which is specifically design to understand French sentences. This allow us to increase our accuracy up to 59%.
 
 Step 5 : Merging different Idea
