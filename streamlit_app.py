@@ -46,7 +46,7 @@ url = "https://raw.githubusercontent.com/JakobFrh/DS-ML_Final/main/Video_french.
 df = load_dataframe(url)
 
 if df is not None:
-    # st.write("Dataframe loaded successfully. Here are the columns:")
+    st.write("Welcome to RiBERTy, your french assesment assistant.")
     # st.write(df.columns.tolist())
 else:
     st.error("Failed to load the dataframe.")
