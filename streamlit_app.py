@@ -33,12 +33,12 @@ def load_dataframe(url):
 url = "https://raw.githubusercontent.com/JakobFrh/DS-ML_Final/main/Video_french.csv"
 df = load_dataframe(url)
 
-if df is not None:
-    st.sidebar.success("Welcome to RiBERTy, your French assessment assistant.")
-    st.sidebar.write("Use this app to assess your French level and get matched with a video based on your proficiency.")
-else:
-    st.error("Failed to load the dataframe.")
-    st.stop()
+# if df is not None:
+    # st.sidebar.success("Welcome to RiBERTy, your French assessment assistant.")
+    # st.sidebar.write("Use this app to assess your French level and get matched with a video based on your proficiency.")
+# else:
+    # st.error("Failed to load the dataframe.")
+    # st.stop()
 
 # Streamlit app
 st.title("RiBERTy")
