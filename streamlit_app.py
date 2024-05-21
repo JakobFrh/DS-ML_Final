@@ -58,11 +58,11 @@ if st.button("Classify"):
             st.write(f"Predicted class: {predicted_class}")
 
             # Retrieve videos that match the predicted difficulty level
-            matching_videos = df[df['difficulty_level'] == predicted_class]
+            matching_videos = df[df['Level'] == predicted_class]
             if not matching_videos.empty:
                 selected_video = matching_videos.sample(n=1).iloc[0]
-                player_name = selected_video["player_name"]
-                video_url = selected_video["video_url"]
+                player_name = selected_video["Player"]
+                video_url = selected_video["Video"]
                 st.write(f"Your French level corresponds to: {player_name}")
                 st.video(video_url)
             else:
