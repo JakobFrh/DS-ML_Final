@@ -1,6 +1,8 @@
 import streamlit as st
 from transformers import CamembertTokenizer, CamembertForSequenceClassification
 import torch
+import pandas as pd
+import random
 
 # Load model and tokenizer
 model_dir = "model"
@@ -25,6 +27,15 @@ except Exception as e:
     st.error(f"An error occurred while loading the model and tokenizer: {e}")
     st.stop()
 
+# Load the dataframe from GitHub
+@st.cache
+def load_dataframe():
+    url = "https://raw.githubusercontent.com/yourusername/yourrepo/main/video_french.csv"
+    df = pd.read_csv(url)
+    return df
+
+df = load_dataframe()
+
 # Streamlit app
 st.title("Camembert Model for Sequence Classification")
 
@@ -45,5 +56,16 @@ if st.button("Classify"):
 
             predicted_class = torch.argmax(logits, dim=1).item()
             st.write(f"Predicted class: {predicted_class}")
+
+            # Retrieve videos that match the predicted difficulty level
+            matching_videos = df[df['difficulty_level'] == predicted_class]
+            if not matching_videos.empty:
+                selected_video = matching_videos.sample(n=1).iloc[0]
+                player_name = selected_video["player_name"]
+                video_url = selected_video["video_url"]
+                st.write(f"Your French level corresponds to: {player_name}")
+                st.video(video_url)
+            else:
+                st.error("No videos found for the predicted difficulty level.")
         except Exception as e:
             st.error(f"An error occurred during classification: {e}")
