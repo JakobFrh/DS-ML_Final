@@ -42,7 +42,7 @@ def load_dataframe(url):
         st.error(f"Unexpected error: {e}")
     return None
 
-url = "https://raw.githubusercontent.com/yourusername/yourrepo/main/video_french.csv"
+url = "https://raw.githubusercontent.com/JakobFrh/DS-ML_Final/main/Video_french.csv"
 df = load_dataframe(url)
 
 if df is not None:
