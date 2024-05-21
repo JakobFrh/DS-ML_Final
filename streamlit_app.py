@@ -41,7 +41,8 @@ else:
     st.stop()
 
 # Streamlit app
-st.title("Les Molières du ballon")
+st.title("RiBERTy")
+st.write("...when the beautiful language meets the beautiful game.")
 
 st.markdown(
     """
@@ -54,11 +55,11 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.markdown('<p class="big-font">Enter your text below to assess your French level and get a recommended video.</p>', unsafe_allow_html=True)
+st.markdown('<p class="big-font">Enter a french sentence below, so RiBERTy can asses you french level.</p>', unsafe_allow_html=True)
 
 text = st.text_area("Enter text:", "")
 
-if st.button("Classify"):
+if st.button("Let's go"):
     if not text:
         st.error("Please enter some text.")
     else:
@@ -97,7 +98,14 @@ st.sidebar.title("Instructions")
 st.sidebar.write(
     """
     1. Enter a piece of French text in the text area.
-    2. Click the 'Classify' button to assess your level.
+    2. Click the 'Let's go' button to assess your level.
     3. Watch the recommended video to improve your French!
     """
 )
+
+st.sidebar.write(
+    """
+    In case you want to learn English, we recommend you to watch this video:
+    """
+)
+st.sidebar.video(https://www.youtube.com/watch?v=dh7O5BV47lU)
