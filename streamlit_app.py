@@ -108,4 +108,4 @@ st.sidebar.write(
     In case you want to learn English, we recommend you to watch this video:
     """
 )
-st.sidebar.video(https://www.youtube.com/watch?v=dh7O5BV47lU)
+# st.sidebar.video(https://www.youtube.com/watch?v=dh7O5BV47lU)
