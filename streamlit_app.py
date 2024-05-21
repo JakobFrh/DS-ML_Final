@@ -3,6 +3,7 @@ from transformers import CamembertTokenizer, CamembertForSequenceClassification
 import torch
 import pandas as pd
 import random
+import urllib.error
 
 # Load model and tokenizer
 model_dir = "model"
@@ -28,13 +29,28 @@ except Exception as e:
     st.stop()
 
 # Load the dataframe from GitHub
-@st.cache
-def load_dataframe():
-    url = "https://raw.githubusercontent.com/JakobFrh/DS-ML_Final/main/Video_french.csv"
-    df = pd.read_csv(url)
-    return df
+@st.cache_data
+def load_dataframe(url):
+    try:
+        df = pd.read_csv(url)
+        return df
+    except urllib.error.HTTPError as e:
+        st.error(f"HTTP error: {e.code} - {e.reason}")
+    except urllib.error.URLError as e:
+        st.error(f"URL error: {e.reason}")
+    except Exception as e:
+        st.error(f"Unexpected error: {e}")
+    return None
 
-df = load_dataframe()
+url = "https://raw.githubusercontent.com/yourusername/yourrepo/main/video_french.csv"
+df = load_dataframe(url)
+
+if df is not None:
+    st.write("Dataframe loaded successfully. Here are the columns:")
+    st.write(df.columns.tolist())
+else:
+    st.error("Failed to load the dataframe.")
+    st.stop()
 
 # Streamlit app
 st.title("Camembert Model for Sequence Classification")
@@ -57,8 +73,15 @@ if st.button("Classify"):
             predicted_class = torch.argmax(logits, dim=1).item()
             st.write(f"Predicted class: {predicted_class}")
 
-            # Retrieve videos that match the predicted difficulty level
-            matching_videos = df[df['Level'] == predicted_class]
+            # Check and use the correct column name for difficulty level
+            if 'Level' in df.columns:
+                matching_videos = df[df['Level'] == predicted_class]
+            elif 'Level' in df.columns:  # If the column name is 'Level'
+                matching_videos = df[df['Level'] == predicted_class]
+            else:
+                st.error("No matching column for difficulty level found in the dataframe.")
+                st.stop()
+
             if not matching_videos.empty:
                 selected_video = matching_videos.sample(n=1).iloc[0]
                 player_name = selected_video["Player"]
