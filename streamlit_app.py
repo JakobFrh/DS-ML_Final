@@ -47,7 +47,7 @@ st.write("...when the beautiful language meets the beautiful game.")
 page_bg_img = '''
 <style>
 .stApp {
-    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vip.de%2Fvips%2Ffranck-ribery-t7139.html&psig=AOvVaw3elU3vLNSwiXLo0L5zDd81&ust=1716474143576000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMilzM66oYYDFQAAAAAdAAAAABAE");
+    background-image: url("https://image.vip.de/23273462/t/IC/v2/w2048/r0/-/franck-ribery-t7139-jpg--topic-image-7139-.jpg");
     background-size: cover;
     background-position: center;
 }
