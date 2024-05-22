@@ -44,6 +44,29 @@ df = load_dataframe(url)
 st.title("RiBERTy")
 st.write("...when the beautiful language meets the beautiful game.")
 
+page_bg_img = '''
+<style>
+.stApp {
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vip.de%2Fvips%2Ffranck-ribery-t7139.html&psig=AOvVaw3elU3vLNSwiXLo0L5zDd81&ust=1716474143576000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMilzM66oYYDFQAAAAAdAAAAABAE");
+    background-size: cover;
+    background-position: center;
+}
+.stApp::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);  /* Adjust the opacity here (0.5 for 50% opacity) */
+    z-index: 0;
+}
+</style>
+'''
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
+
 st.markdown(
     """
     <style>
