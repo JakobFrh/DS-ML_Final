@@ -30,10 +30,13 @@ By fine-tuning our preprocessing techniques and carefully selecting model parame
 Looking at the results table, it is clear that Logistic Regression yields the best results across all metrics, with significantly higher accuracy than the other models. This superior performance can be attributed to the model’s ability to effectively consider factors such as sentence length, the occurrence of certain words, and other relevant features to predict the difficulty of new sentences.
 
 The next best model is the Random Forest classifier. In contrast, the Decision Tree model struggles the most. This is likely due to overfitting, which hampers its ability to generalize well. When dealing with language data, the training set cannot cover the entire range of features that distinguish each difficulty level from the others. Despite these challenges, the performance of these models represents an improvement over the base rate of approximately 18%.
-![confusion_matrix_LR_2](https://github.com/JakobFrh/DS-ML_Final/assets/152393307/3b167286-525c-4b24-b8bd-f2d50fcdceb1)
-![confusion_matrix_KNN_2](https://github.com/JakobFrh/DS-ML_Final/assets/152393307/6781f453-e877-45e1-8671-b88f8b0e4cf2)
-![confusion_matrix_DT](https://github.com/JakobFrh/DS-ML_Final/assets/152393307/2a6c3d43-8e6d-430a-9470-96e52806e5a8)
-![confusion_matrix_RF](https://github.com/JakobFrh/DS-ML_Final/assets/152393307/8895ed4b-c655-4990-b6e2-94f38317e10d)
+
+<p align="center">
+  <img src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/3b167286-525c-4b24-b8bd-f2d50fcdceb1" alt="Confusion Matrix LR 2" width="200"/>
+  <img src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/6781f453-e877-45e1-8671-b88f8b0e4cf2" alt="Confusion Matrix KNN 2" width="200"/>
+  <img src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/2a6c3d43-8e6d-430a-9470-96e52806e5a8" alt="Confusion Matrix DT" width="200"/>
+  <img src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/8895ed4b-c655-4990-b6e2-94f38317e10d" alt="Confusion Matrix RF" width="200"/>
+</p>
 
 To gain deeper insights, we should examine some confusion matrices. Unsurprisingly, each model performs well on the A1 labels. However, all models struggle with predicting the middle labels, especially B1 and B2. 
 
