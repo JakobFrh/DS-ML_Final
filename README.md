@@ -8,6 +8,19 @@ To build the model we add a train data of 4800 words and a test data of 1200. He
 
 The first steps of discovery led to the use of basics model like linear regression, decision tree or random forest. Those model show an overall poor accuracy. On the other hand it was surprisingly not so bad with extreme values as A1 or C2. We went further on the model, trying stop words removal but this decreased accuracy. Then we tried lemmatization, bi-gram and tri-gram and it appears that adding bi-gram to the tokenizer is our best option. Also moving from linear regression and other models to support vector machine with SVC (support vector classifier) was the most efficient model. Mixing it with bi-gram allow us to reach an accuracy of 47,1%. 
 
+
+To predict the difficulty of French sentences, we experimented with several basic machine learning models. The performance of these models was evaluated using four key metrics: Precision, Recall, F1-Score, and Accuracy, as shown in the table below.
+
+For preprocessing, we used a TF-IDF vectorizer from the sklearn package. Interestingly, we discovered that removing stop words actually decreased the accuracy for some models, specifically Logistic Regression and KNN. We found that using an n-gram range of (1, 2) yielded the best accuracy. Apart from this adjustment, we relied on the default parameters for our models.
+
+Here's a brief overview of the metrics we used:
+- **Precision:** The proportion of correctly predicted difficulty levels out of all predictions made.
+- **Recall:** The proportion of actual difficulty levels that were correctly identified by the model.
+- **F1-Score:** The harmonic mean of Precision and Recall, providing a balanced measure of model performance.
+- **Accuracy:** The overall percentage of correct predictions.
+
+By fine-tuning our preprocessing techniques and carefully selecting model parameters, we aimed to achieve the highest possible accuracy in predicting the difficulty levels of French sentences.
+
 **Step 2 : Pipeline**
 
 Diving deeper into basic model we implemented a pipeline where we take into account, the number of word, the number of unique words and the number of comas. We also tried to implement special character count (# »!?’`^+…) and a to take into account the different verb tense but those decrease the accuracy.  
