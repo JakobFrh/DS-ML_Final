@@ -49,7 +49,7 @@ page_bg_img = '''
 .stApp {
     background-image: url("https://image.vip.de/23273462/t/IC/v2/w2048/r0/-/franck-ribery-t7139-jpg--topic-image-7139-.jpg");
     background-size: cover;
-    background-position: center 60%;
+    background-position: center 35%;
 }
 .stApp::before {
     content: "";
