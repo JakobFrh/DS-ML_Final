@@ -41,8 +41,17 @@ df = load_dataframe(url)
     # st.stop()
 
 # Streamlit app
-st.title("RiBERTy")
-st.write("...when the beautiful language meets the beautiful game.")
+# st.title("RiBERTy")
+# st.write("...when the beautiful language meets the beautiful game.")
+
+
+# Combined classes for centered title with big font
+st.markdown('<p class="big-font centered-title">Welcome to RiBERTy!</p>', unsafe_allow_html=True)
+
+# Combined classes for centered subtitle with big font
+st.markdown('<p class="big-font centered-subtitle">...when the beautiful language meets the beautiful game.</p>', unsafe_allow_html=True)
+
+
 
 page_bg_img = '''
 <style>
@@ -78,7 +87,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.markdown('<p class="big-font">Enter a french sentence below, so RiBERTy can asses you french level.</p>', unsafe_allow_html=True)
+st.markdown('<p class="big-font">Enter a french sentence below, so RiBERTy can assess you french level.</p>', unsafe_allow_html=True)
 
 text = st.text_area("Enter text:", "")
 
