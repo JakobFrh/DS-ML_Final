@@ -3,7 +3,7 @@
 The project conducted was aiming to identify the level of a French sentence using machine learning model. With the EURO 2024 coming in the following weeks we wanted to use this trend to make people get back to studying French. Therefor we created an application that recognizes the level of a French sentence and assign him to a famous video of a footballer speaking French. From Zlatan Ibrahimovic to Frank Ribéry, discover French learning as you never thought it was possible.
 
 
-To build the model we add a train data of 4800 words and a test data of 1200. Here are the 5 steps we went through to build the more accurate model possible.
+To build the model we add a train data of 4800 words and a test data of 1200. Here are the 5 steps we went through to build the most accurate model possible.
 
 **Step 1 : Discovery**
 
