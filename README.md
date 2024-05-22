@@ -9,6 +9,10 @@ To build the model we add a train data of 4800 words and a test data of 1200. He
 The first steps of discovery led to the use of basics model like linear regression, decision tree or random forest. Those model show an overall poor accuracy. On the other hand it was surprisingly not so bad with extreme values as A1 or C2. We went further on the model, trying stop words removal but this decreased accuracy. Then we tried lemmatization, bi-gram and tri-gram and it appears that adding bi-gram to the tokenizer is our best option. Also moving from linear regression and other models to support vector machine with SVC (support vector classifier) was the most efficient model. Mixing it with bi-gram allow us to reach an accuracy of 47,1%. 
 
 
+
+
+
+
 To predict the difficulty of French sentences, we experimented with several basic machine learning models. The performance of these models was evaluated using four key metrics: Precision, Recall, F1-Score, and Accuracy, as shown in the table below.
 
 For preprocessing, we used a TF-IDF vectorizer from the sklearn package. Interestingly, we discovered that removing stop words actually decreased the accuracy for some models, specifically Logistic Regression and KNN. We found that using an n-gram range of (1, 2) yielded the best accuracy. Apart from this adjustment, we relied on the default parameters for our models.
@@ -20,6 +24,22 @@ Here's a brief overview of the metrics we used:
 - **Accuracy:** The overall percentage of correct predictions.
 
 By fine-tuning our preprocessing techniques and carefully selecting model parameters, we aimed to achieve the highest possible accuracy in predicting the difficulty levels of French sentences.
+
+<img width="1135" alt="Bildschirmfoto 2024-05-23 um 00 12 14" src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/0e80e4e5-1d5b-4f7b-99b1-ff27e9210f97">
+
+Looking at the results table, it is clear that Logistic Regression yields the best results across all metrics, with significantly higher accuracy than the other models. This superior performance can be attributed to the model’s ability to effectively consider factors such as sentence length, the occurrence of certain words, and other relevant features to predict the difficulty of new sentences.
+
+The next best model is the Random Forest classifier. In contrast, the Decision Tree model struggles the most. This is likely due to overfitting, which hampers its ability to generalize well. When dealing with language data, the training set cannot cover the entire range of features that distinguish each difficulty level from the others. Despite these challenges, the performance of these models represents an improvement over the base rate of approximately 18%.
+![confusion_matrix_LR_2](https://github.com/JakobFrh/DS-ML_Final/assets/152393307/3b167286-525c-4b24-b8bd-f2d50fcdceb1)
+![confusion_matrix_KNN_2](https://github.com/JakobFrh/DS-ML_Final/assets/152393307/6781f453-e877-45e1-8671-b88f8b0e4cf2)
+![confusion_matrix_DT](https://github.com/JakobFrh/DS-ML_Final/assets/152393307/2a6c3d43-8e6d-430a-9470-96e52806e5a8)
+![confusion_matrix_RF](https://github.com/JakobFrh/DS-ML_Final/assets/152393307/8895ed4b-c655-4990-b6e2-94f38317e10d)
+
+To gain deeper insights, we should examine some confusion matrices. Unsurprisingly, each model performs well on the A1 labels. However, all models struggle with predicting the middle labels, especially B1 and B2. 
+
+The KNN model stands out in a different way. It tends to predict a high number of sentences (from all labels) as C1. This suggests that many sentences share similarities, after being vectorized, with those classified as C1, leading to frequent misclassification as C1.
+
+By analyzing these confusion matrices, we can better understand the specific challenges and potential areas for improvement for each model.
 
 **Step 2 : Pipeline**
 
