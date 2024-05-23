@@ -3,13 +3,13 @@
 # RiBERTy
 #### ...when the beautiful language meets the beautiful game❤️. 
 
-This project aims at predicting the difficulty of French sentences with machine learning models. With the EURO 2024 approaching, we want to use our ML model to motivate and encourage people to learn French in a fun way. Therefore, we created RiBERTy, a language difficulty prediction model that recommends you youtube videos of football players speaking French, based on your French proficiency level. From Zlatan Ibrahimovic to Frank Ribéry, people now can learn French in a way as they never thought it was possible. 
-To access the app and try it yourself, click the link below.
+This project aims to predict the difficulty of French sentences using machine learning models. With EURO 2024 approaching, we want to use our ML model to motivate and encourage people to learn French in a fun way. So, we created RiBERTy, a language difficulty prediction model that recommends YouTube videos of football players speaking French based on your proficiency level. From Zlatan Ibrahimović to Franck Ribéry, people can now learn French in a way they never thought possible. To try the app yourself, click the link below.
 
 [RiBERTy ...when the beautiful language meets the beautiful game 🇫🇷❤️⚽️.]( https://ducfruhauf.streamlit.app)
 
-To get further insights into the development process of the RiBERTy model, we created this README. In 5 chapters, it describes and assesses the different ML models we tested to improve the accuracy of our predictions. 
-The accessible data to train our models was originally restricted to 4800 labelled French sentences. The test dataset included 1200, which difficulty needed to be predicted in the end. 
+To give you more insights into the development process of the RiBERTy model, we've created this README. In five chapters, it describes and evaluates the different ML models we tested to improve our prediction accuracy.
+
+We initially had access to 4,800 labeled French sentences for training our models. The test dataset included 1,200 sentences, for which we needed to predict the difficulty in the end. Enjoy!!! 
 
 
 ## **Step 1: Discovery** 🕵️‍♂️
