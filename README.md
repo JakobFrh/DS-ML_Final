@@ -47,16 +47,18 @@ The KNN model stands out in a different way. It tends to predict a high number o
 
 **Step 2 : Pipeline**
 
-Diving deeper into basic model we implemented a pipeline where we take into account, the number of word, the number of unique words and the number of comas. We also tried to implement special character count (# »!?’`^+…) and a to take into account the different verb tense but those decrease the accuracy.  
+Diving deeper into basic model we implemented a pipeline which processes text and numeric features from sentences: it transforms sentences into numerical vectors using word combinations and scales numerical values for features like word count. After preprocessing, the data is used to train a linear Support Vector Machine (SVM) model for classification tasks. We also tried to implement special character count (# »!?’`^+…) and a to take into account the different verb tense but those decrease the accuracy.  
 ￼
 <img width="545" alt="Pipeline" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/f2cc8389-45c5-4940-a1b2-30c5c87a3846">
 
 
 The pipeline present the follwing characteristics : 
-- **Precision:** 
-- **Recall:** 
-- **F1-Score:** 
-- **Accuracy:**
+- **Precision:** 0.502
+- **Recall:**  0.504
+- **F1-Score:**  0.498
+- **Accuracy:** 0.505
+- 
+![Unknown-2](https://github.com/JakobFrh/DS-ML_Final/assets/161482199/76f160e6-4baf-448a-8b58-f25ebf641676)
 
 
 
