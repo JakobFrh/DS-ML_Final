@@ -84,15 +84,46 @@ We then explored large language models:
 
 ## **Step 5: Merging Different Ideas** 🤝
 
-We noticed that:
-- The CamemBERT model struggled with extreme values A1/C2.
-- The pipeline performed well with these categories.
+### 📝 Overview
 
-### **ABC Classification** 📚
+Taking the assumption that the data are more or less equally weighted like in the train dataset, we noticed that the Camembert model struggles a bit more to predict the extreme values A1/C2. While the pipeline results were excellent with these two categories, we decided to focus on the pipeline and try to improve its efficiency on A1/C2 predictions.
 
-We implemented ABC classification to enhance our model:
-- **Training the CamemBERT model on A, B, or C labels:** Allowed for better data distribution.
-- **Pipeline model for A1/A2 and C1/C2:** Improved accuracy for these categories.
+### 🚀 Improvements and Adjustments
+
+1. **Initial Observations:**
+   - **Camembert Model:** Struggles with predicting A1/C2 values.
+   - **Pipeline Model:** Performs excellently with A1/C2 predictions.
+
+2. **Decision:**
+   - Focus on the pipeline to enhance A1/C2 predictions.
+
+3. **Previous Attempts:**
+   - Tried data augmentation without success.
+
+4. **New Strategy:**
+   - Implement a small trick to virtually increase the data.
+   - Instead of using LLM on 6 labels, train it on A, B, or C labels, resulting in 4800 data points for 3 labels.
+
+### 🛠️ Methodology
+
+1. **ABC Classification:**
+   - Train the pipeline model to recognize A1 from A2 within the A label and C2 from C1 within the C label.
+
+2. **Training Process:**
+   - Use the entire dataset to train the model.
+   - Re-label all the training data as C1 except for the C2 data, allowing for a larger dataset for training.
+
+### 🔍 Considerations
+
+- **False-Negatives:** This approach might increase the number of false negatives, but the predicted C2 values have a high chance of being actual C2.
+- **Extreme Values:** This strategy is effective because A1 and C2 are the extreme values.
+- **LLM Adjustment:**
+   - Only the C2 values will be kept for the LLM adjustment.
+   - Ensure any data change in the LLM is supposed to be changed.
+
+### 📈 Conclusion
+
+By focusing on the pipeline and implementing a new classification strategy, we aim to significantly improve the prediction accuracy for the extreme values A1 and C2. This method allows us to utilize a larger dataset for training, enhancing the model's performance.
 
 <p align="center">
   <img width="958" alt="Graph for different solutions" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/9bdae228-e802-4d85-a628-60fb2a2409db">
