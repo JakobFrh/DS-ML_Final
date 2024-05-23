@@ -56,6 +56,9 @@ As seen in the table, the SVC even improves the metrics compared to the Logistic
   <img width="400" alt="Bildschirmfoto 2024-05-23 um 13 32 34" src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/13ab1c47-d732-485b-8ead-8eb7c8c233fd">
 </p>
 
+Comparing the shading of this confusion matrix to the other matrices, one can see that especially for the intermediate level difficulties (B1,B2) the SVC predicts more true labels. Since works by finding the hyperplane that maximizes the margin, or distance, between the closest points of the different classes (support vectors) and the separation line (or hyperplane), it may recognize more features on how to differentiate the different difficulty levels within the sentences. 
+
+
 ## **Step 2: Pipeline** 🔄
 
 Diving deeper into basic model we implemented a pipeline which processes text and numeric features from sentences: it transforms sentences into numerical vectors using word combinations and scales numerical values for features like word count. After preprocessing, the data is used to train a linear Support Vector Machine (SVM) model for classification tasks. We also tried to implement special character count (# »!?’`^+…) and a to take into account the different verb tense but those decrease the accuracy.  
