@@ -48,15 +48,15 @@ The KNN model stands out in a different way. It tends to predict a high number o
 ### **Other Models** 🤖
 
 *Support Vector Machine*:
-Since the logistic regression was most successful amongst the basic models we tested, we decided to continue with a model that is able to differentiate features in a high dimensional space. Therefore we went for the SVC algorithm as a Support Vector Machine. It turned out that the parameter adjustments **kernel = 'linear'** and **max_iterations = 100000** provided us with the highest values for the considered metrics.
+Since logistic regression worked best among the basic models we tested, we decided to try a more advanced model that can better differentiate features in complex spaces. So, we chose the SVC algorithm, a type of Support Vector Machine. By setting the parameters to use a **'linear' kernel** and a maximum of **10,000 iterations**, we achieved the best results for our metrics.
 
-As seen in the table, the SVC even improves the metrics compared to the Logistic Regression. Taking a look at the confusion matrix, we might get a hint of where the improved accuracy might come from.
+As shown in the table, the SVC improved the metrics compared to Logistic Regression. By examining the confusion matrix, we can see where this improved accuracy comes from.
 
 <p align="center">
   <img width="400" alt="Bildschirmfoto 2024-05-23 um 13 32 34" src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/13ab1c47-d732-485b-8ead-8eb7c8c233fd">
 </p>
 
-Comparing the shading of this confusion matrix to the other matrices, one can see that especially for the intermediate level difficulties (B1,B2) the SVC predicts more true labels. Since works by finding the hyperplane that maximizes the margin, or distance, between the closest points of the different classes (support vectors) and the separation line (or hyperplane), it may recognize more features on how to differentiate the different difficulty levels within the sentences. 
+Comparing the shading of this confusion matrix to the others, it's clear that for intermediate difficulty levels (B1, B2), the SVC predicts more correct labels. This improvement likely comes from the SVC's ability to find the best separation between different classes. It identifies more features to differentiate the difficulty levels within the sentences.
 
 
 ## **Step 2: Pipeline** 🔄
