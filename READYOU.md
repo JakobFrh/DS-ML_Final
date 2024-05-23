@@ -36,9 +36,9 @@ Looking at the results table, it is clear that **Logistic Regression** yields th
 
 ### **Model Comparison** 🔍
 
-- **Next Best Model:** Random Forest classifier.
-- **Struggles the Most:** Decision Tree model, likely due to overfitting which hampers its ability to generalize well.
-- **Improvement:** Performance represents an improvement over the base rate of approximately 18%.
+- *Next Best Model:* Random Forest classifier.
+- *Struggles the Most:* Decision Tree model, likely due to overfitting which hampers its ability to generalize well.
+- *Improvement:* Performance represents an improvement over the base rate of approximately 18%.
 
 <p align="center">
   <img src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/3b167286-525c-4b24-b8bd-f2d50fcdceb1" alt="Confusion Matrix LR 2" width="400"/>
@@ -51,7 +51,10 @@ To gain deeper insights, we should examine some confusion matrices. Unsurprising
 
 The KNN model stands out in a different way. It tends to predict a high number of sentences (from all labels) as C1. This suggests that many sentences share similarities, after being vectorized, with those classified as C1, leading to frequent misclassification as C1.
 
+### **Other Models** 🤖
 
+*Support Vector Machine*:
+Since the logistic regression was most successful amongst the basic models we tested, we decided to continue with a model that is able to differentiate features in a high dimensional space. Therefore we went for the SVC algorithm as a Support Vector Machine. 
 
 ## **Step 2: Pipeline** 🔄
 
