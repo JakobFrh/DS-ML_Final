@@ -124,7 +124,7 @@ Taking the assumption that the data are more or less equally weighted like in th
    - Use the entire dataset to train the model.
    - Re-label all the training data as C1 except for the C2 data, allowing for a larger dataset for training.
 
-### 🔍 Considerations
+3.  **Considerations**
 
 - **False-Negatives:** This approach might increase the number of false negatives, but the predicted C2 values have a high chance of being actual C2.
 - **Extreme Values:** This strategy is effective because A1 and C2 are the extreme values.
