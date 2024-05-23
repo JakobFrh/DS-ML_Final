@@ -1,7 +1,3 @@
-Certainly! Here's the revised README text with improved structure, use of bullet points, bold, italic, and some emojis to enhance the appearance:
-
----
-
 # DS-ML_Final
 
 The project aimed to identify the difficulty level of French sentences using machine learning models. With EURO 2024 coming soon, we wanted to use this trend to encourage people to study French. Therefore, we created an application that recognizes the level of a French sentence and assigns it to a famous video of a footballer speaking French. From Zlatan Ibrahimovic to Frank Ribéry, discover French learning as you never thought possible.
