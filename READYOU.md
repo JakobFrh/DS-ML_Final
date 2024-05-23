@@ -182,7 +182,3 @@ Given the minimal increase in accuracy and high computational cost, we decided t
 - **ABC_CLASSIFICATION:** Output of the ABC classifier.
 - **CAMEMBERT:** Output of the CamemBERT classifier with 6 labels.
   
-
----
-
-This enhanced structure, along with visual elements, will make your README more engaging and easier to follow.
