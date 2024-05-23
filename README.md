@@ -140,6 +140,8 @@ To sum up, we use our extrem values corrector to get A1 and C2 data out of the A
 </p>
 
 ## **Guide of Github** 📂
-- **Model:** RiBERTy final and Streamlit application models.
-- **ABC_CLASSIFICATION:** Output of the ABC classifier.
-- **CAMEMBERT:** Output of the CamemBERT classifier with 6 labels.
+- **model:** Final RiBERTy model and tokenizer configurations used in the Streamlit application.
+- **ABC_Classifier.csv:** Output of the ABC classifier.
+- **CAMEMBERT.csv:** Output of the CamemBERT classifier with 6 labels.
+- **Video_french.csv:** Content used to be used in the streamlit app
+- **requirements.txt** and **streamlit_app.py:** Code to run the Streamlit app
