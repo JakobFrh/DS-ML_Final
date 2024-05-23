@@ -129,6 +129,7 @@ By focusing on the pipeline and implementing a new classification strategy, we a
   <img width="958" alt="Graph for different solutions" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/9bdae228-e802-4d85-a628-60fb2a2409db">
 </p>
 
+
 Furthermore, using the CamemBERT model, train on the C1/C2 datas on the C label of the ABC classification gave an accuracy of 73.2% on 146 C2 labels. We also incorporated this C2 CamemBERT model  into our LLM corrector.
 
 - **Pipeline for C2 data:** Most accurate.
