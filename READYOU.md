@@ -1,11 +1,11 @@
 # DS-ML_Final
 
-# RiBERTy
+# RiBERTy 
 #### ...when the beautiful language meets the beautiful game❤️. 
 
 This project aims to predict the difficulty of French sentences using machine learning models. With EURO 2024 approaching, we want to use our ML model to motivate and encourage people to learn French in a fun way. So, we created RiBERTy, a language difficulty prediction model that recommends YouTube videos of football players speaking French based on your proficiency level. From Zlatan Ibrahimović to Franck Ribéry, people can now learn French in a way they never thought possible. To try the app yourself, click the link below. [Get more information with our presentation video.](https://youtu.be/aeW5deuw2fg)
 
-[RiBERTy ...when the beautiful language meets the beautiful game 🇫🇷❤️⚽️.]( https://ducfruhauf.streamlit.app)
+[**RiBERTy** ...when the beautiful language meets the beautiful game 🇫🇷❤️⚽️.]( https://ducfruhauf.streamlit.app)
 
 To give you more insights into the development process of the RiBERTy model, we've created this README. In five chapters, it describes and evaluates the different ML models we tested to improve our prediction accuracy.
 
