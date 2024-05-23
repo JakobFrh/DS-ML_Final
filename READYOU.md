@@ -83,7 +83,7 @@ We noticed that:
 ### **ABC Classification** 📚
 
 We implemented ABC classification to enhance our model:
-- **Training the LLM on A, B, or C labels:** Allowed for better data distribution.
+- **Training the CamemBERT model on A, B, or C labels:** Allowed for better data distribution.
 - **Pipeline model for A1/A2 and C1/C2:** Improved accuracy for these categories.
 
 <p align="center">
