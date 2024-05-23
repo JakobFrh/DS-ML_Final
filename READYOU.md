@@ -18,7 +18,8 @@ To predict the difficulty of French sentences, we experimented with several basi
 
 For preprocessing, we used a TF-IDF vectorizer from the sklearn package. Interestingly, we discovered that removing stop words actually decreased the accuracy for some models, specifically Logistic Regression and K-Nearest Neighbors. We found that using an n-gram range of (1, 2) yielded the best accuracy. Apart from this adjustment, we relied on the default parameters for our models. 
 
-`vectorizer = TfidfVectorizer(
+```python
+vectorizer = TfidfVectorizer(
     #max_df=0.95,         # Ignore terms that appear in more than 95% of the documents
     min_df=2,            # Ignore terms that appear in fewer than 2 documents
     ngram_range=(1, 2),  # Use unigrams and bigrams
@@ -27,7 +28,8 @@ For preprocessing, we used a TF-IDF vectorizer from the sklearn package. Interes
     use_idf=True,        # Enable inverse-document-frequency reweighting
     smooth_idf=True,     # Smooth idf weights by adding one to document frequencies
     sublinear_tf=True    # Apply sublinear term frequency scaling
-)`
+)
+```
 
 ### **Metrics Overview** 📊
 
