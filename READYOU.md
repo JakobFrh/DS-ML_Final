@@ -53,9 +53,8 @@ Since the logistic regression was most successful amongst the basic models we te
 As seen in the table, the SVC even improves the metrics compared to the Logistic Regression. Taking a look at the confusion matrix, we might get a hint of where the improved accuracy might come from.
 
 <p align="center">
-  <img width="400" alt="Bildschirmfoto 2024-05-23 um 10 45 13" src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/fe9ed272-ba92-406e-9a90-d9ba86834d26">
+  <img width="400" alt="Bildschirmfoto 2024-05-23 um 13 32 34" src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/13ab1c47-d732-485b-8ead-8eb7c8c233fd">
 </p>
-![confusion_matrix_SVC_2](https://github.com/JakobFrh/DS-ML_Final/assets/152393307/4f1d3bc3-8801-45f2-b9d7-5f6ca2def97c)
 
 ## **Step 2: Pipeline** 🔄
 
