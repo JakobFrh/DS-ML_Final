@@ -130,7 +130,7 @@ By focusing on the pipeline and implementing a new classification strategy, we a
 </p>
 
 
-Furthermore, using the CamemBERT model, train on the C1/C2 datas on the C label of the ABC classification gave an accuracy of 73.2% on 146 C2 labels. We also incorporated this C2 CamemBERT model  into our LLM corrector.
+Using the CamemBERT model, train on the C1/C2 datas on the C label of the ABC classification gave an accuracy of 73.2% on 146 C2 labels. We also incorporated this C2 CamemBERT model  into our LLM corrector.
 
 - **Pipeline for C2 data:** Most accurate.
 - **C2 Camembert:** More accurate than Camembert on all datasets.
