@@ -86,21 +86,19 @@ We then explored large language models:
 
 ### 📝 Overview
 
-Taking the assumption that the data are more or less equally weighted like in the train dataset, we noticed that the Camembert model struggles a bit more to predict the extreme values A1/C2. While the pipeline results were excellent with these two categories, we decided to focus on the pipeline and try to improve its efficiency on A1/C2 predictions.
+Taking the assumption that the data are more or less equally weighted like in the train dataset, we noticed that the Camembert model is more cautious with the extreme values A1/C2. While the pipeline results were excellent with these two categories, we decided to focus on the pipeline and try to improve its efficiency on A1/C2 predictions.
 
 ### 🚀 Improvements and Adjustments
 
 1. **Initial Observations:**
-   - **Camembert Model:** Struggles with predicting A1/C2 values.
-   - **Pipeline Model:** Performs excellently with A1/C2 predictions.
+   - **Camembert Model:** Predict A1/C2 values more cautiously with relatively lower representation of these labels (graph 1).
+   - **Pipeline Model:** Has an high accuracy with A1/C2 predictions.
 
 2. **Decision:**
    - Focus on the pipeline to enhance A1/C2 predictions.
-
-3. **Previous Attempts:**
+   
+3. **New Strategy:**
    - Tried data augmentation without success.
-
-4. **New Strategy:**
    - Implement a small trick to virtually increase the data.
    - Instead of using LLM on 6 labels, train it on A, B, or C labels, resulting in 4800 data points for 3 labels.
 
