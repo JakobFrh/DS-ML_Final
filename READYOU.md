@@ -36,9 +36,9 @@ Looking at the results table, it is clear that **Logistic Regression** yields th
 
 ### **Model Comparison** 🔍
 
-- *Next Best Model:* Random Forest classifier.
+- *Next Best Model:* Random Forest classifier. Given the limited amount of data it seems to find a better balance between extracting the important decision variables and generalization than the other models.
 - *Struggles the Most:* Decision Tree model, likely due to overfitting which hampers its ability to generalize well.
-- *Improvement:* Performance represents an improvement over the base rate of approximately 18%.
+- *Improvement:* Performance represents an improvement over the base rate of approximately 18% (occurence of every class in the dataset).
 
 <p align="center">
   <img src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/3b167286-525c-4b24-b8bd-f2d50fcdceb1" alt="Confusion Matrix LR 2" width="400"/>
@@ -47,14 +47,14 @@ Looking at the results table, it is clear that **Logistic Regression** yields th
   <img src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/8895ed4b-c655-4990-b6e2-94f38317e10d" alt="Confusion Matrix RF" width="400"/>
 </p>
 
-To gain deeper insights, we should examine some confusion matrices. Unsurprisingly, each model performs well on the A1 labels. However, all models struggle with predicting the middle labels, especially B1 and B2.
+To gain deeper insights, we should examine some confusion matrices. Unsurprisingly, each model performs well on the A1 labels. However, all models struggle with predicting the middle labels, especially B1 and B2. This is not surprising either, since these levels distinguish themselves from other levels by the fluently and the details in language, which are difficult features to extract from only one sentence.
 
 The KNN model stands out in a different way. It tends to predict a high number of sentences (from all labels) as C1. This suggests that many sentences share similarities, after being vectorized, with those classified as C1, leading to frequent misclassification as C1.
 
 ### **Other Models** 🤖
 
 *Support Vector Machine*:
-Since the logistic regression was most successful amongst the basic models we tested, we decided to continue with a model that is able to differentiate features in a high dimensional space. Therefore we went for the SVC algorithm as a Support Vector Machine. 
+Since the logistic regression was most successful amongst the basic models we tested, we decided to continue with a model that is able to differentiate features in a high dimensional space. Therefore we went for the SVC algorithm as a Support Vector Machine. It turned out that the parameter adjustments kernel = 'linear' and max_iterations = 100000 provided us with the highest values for the considered metrics.
 
 ## **Step 2: Pipeline** 🔄
 
