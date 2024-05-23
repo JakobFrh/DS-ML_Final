@@ -1,5 +1,8 @@
 # DS-ML_Final
 
+## RiBERTy
+#### ...when the beautiful language meets the beautiful game. 
+
 The project aimed to identify the difficulty level of French sentences using machine learning models. With EURO 2024 coming soon, we wanted to use this trend to encourage people to study French. Therefore, we created an application that recognizes the level of a French sentence and assigns it to a famous video of a footballer speaking French. From Zlatan Ibrahimovic to Frank Ribéry, discover French learning as you never thought possible.
 
 To build the model, we used a training dataset of 4800 words and a test dataset of 1200 words. Here are the 5 steps we followed to build the most accurate model possible:
