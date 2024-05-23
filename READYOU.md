@@ -48,7 +48,14 @@ The KNN model stands out in a different way. It tends to predict a high number o
 ### **Other Models** 🤖
 
 *Support Vector Machine*:
-Since the logistic regression was most successful amongst the basic models we tested, we decided to continue with a model that is able to differentiate features in a high dimensional space. Therefore we went for the SVC algorithm as a Support Vector Machine. It turned out that the parameter adjustments *kernel = 'linear'* and *max_iterations = 100000* provided us with the highest values for the considered metrics.
+Since the logistic regression was most successful amongst the basic models we tested, we decided to continue with a model that is able to differentiate features in a high dimensional space. Therefore we went for the SVC algorithm as a Support Vector Machine. It turned out that the parameter adjustments **kernel = 'linear'** and **max_iterations = 100000** provided us with the highest values for the considered metrics.
+
+As seen in the table, the SVC even improves the metrics compared to the Logistic Regression. Taking a look at the confusion matrix, we might get a hint of where the improved accuracy might come from.
+
+<p align="center">
+  <img width="400" alt="Bildschirmfoto 2024-05-23 um 10 45 13" src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/fe9ed272-ba92-406e-9a90-d9ba86834d26">
+</p>
+![confusion_matrix_SVC_2](https://github.com/JakobFrh/DS-ML_Final/assets/152393307/0d00688c-462d-4dde-a55c-1b30f2aaaa03)
 
 ## **Step 2: Pipeline** 🔄
 
