@@ -20,10 +20,8 @@ For preprocessing, we used a TF-IDF vectorizer from the sklearn package. Interes
 
 ```python
 vectorizer = TfidfVectorizer(
-    #max_df=0.95,         # Ignore terms that appear in more than 95% of the documents
     min_df=2,            # Ignore terms that appear in fewer than 2 documents
     ngram_range=(1, 2),  # Use unigrams and bigrams
-    #stop_words= french_stop_words, # Remove french stop words
     max_features=5000,   # Limit the number of features to the 5000 most frequent terms
     use_idf=True,        # Enable inverse-document-frequency reweighting
     smooth_idf=True,     # Smooth idf weights by adding one to document frequencies
@@ -59,7 +57,7 @@ Looking at the results table, it is clear that **Logistic Regression** yields th
   <img src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/8895ed4b-c655-4990-b6e2-94f38317e10d" alt="Confusion Matrix RF" width="400"/>
 </p>
 
-To gain deeper insights, we should examine some confusion matrices. Unsurprisingly, each model performs well on the A1 labels. However, all models struggle with predicting the middle labels, especially B1 and B2. This is not surprising either, since these levels distinguish themselves from other levels by the fluently and the details in language, which are difficult features to extract from only one sentence.
+To gain deeper insights, we should examine some confusion matrices. Unsurprisingly, each model performs well on the A1 labels. However, all models struggle with predicting the middle labels, especially B1 and B2. This is not surprising either, since these levels distinguish themselves from other levels by the fluency and the details in language, which are difficult features to extract from only one sentence.
 
 The KNN model stands out in a different way. It tends to predict a high number of sentences (from all labels) as C1. This suggests that many sentences share similarities, after being vectorized, with those classified as C1, leading to frequent misclassification as C1.
 
@@ -84,14 +82,14 @@ Diving deeper into basic model we implemented a pipeline which processes text an
 <img width="600" alt="Pipeline" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/f2cc8389-45c5-4940-a1b2-30c5c87a3846">
 
 
-The pipeline present the follwing characteristics : 
+The pipeline achieves the following characteristics : 
 - **Precision:** 0.502
 - **Recall:**  0.504
 - **F1-Score:**  0.498
 - **Accuracy:** 0.505
 
  <p align="center">
-<img width="300" alt="Capture d’écran 2024-05-23 à 10 36 49" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/b873e361-25af-4cf2-a818-0f8b65e59b43">
+<img width="400" alt="Capture d’écran 2024-05-23 à 10 36 49" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/b873e361-25af-4cf2-a818-0f8b65e59b43">
 
 ## **Step 3: Data Augmentation** 📈
 
@@ -99,20 +97,20 @@ Data augmentation is a technique used to create new, slightly modified versions 
 
 We tried various data augmentation techniques:
 - **Back translation:** Not kept due to high computation costs.
-- **Synonyms:** Decreased model accuracy.
-- **GPT-3.5 API:** Poor sentence variety that decreased model accuracy.
+- **Synonyms:** Decreased the models accuracy.
+- **GPT-3.5 API:** Poor sentence variety that decreased models accuracy.
 
 ## **Step 4: Large Language Models (LLM)** 🧠
 
-We then explored large language models:
-- **DistilBERT-multilanguage:** Increased accuracy of final prediction.
+We then explored large language models, amongst the possible llm's we decided to go for variations of Googles BERT (Bidirectional Encoder Representations from Transformers) Algorithm:
+- **DistilBERT-multilanguage** (a smaller model), nevertheless ensuring similar performance: Increased accuracy of our final prediction.
 - **CamemBERT-base model:** Specifically designed for French, boosting accuracy to 59%.
 
 ## **Step 5: Merging Different Ideas** 🤝
 
 ### 📝 Overview
 
-Taking the assumption that the data are more or less equally weighted like in the train dataset, we noticed that the Camembert model is more cautious with the extreme values A1/C2. While the pipeline results were excellent with these two categories, we decided to focus on the pipeline and try to improve its efficiency on A1/C2 predictions.
+Under the assumption that in terms of difficulty the sentences in the test dataset are roughly equally distributed as in the train dataset, we noticed that the Camembert model is more cautious with the extreme values A1/C2. While the pipeline results were excellent with these two categories, we decided to focus on the pipeline and try to improve its efficiency on A1/C2 predictions.
 
 ### 🚀 Improvements and Adjustments
 
@@ -139,7 +137,7 @@ Taking the assumption that the data are more or less equally weighted like in th
 
 3.  **Considerations**
 
-- **False-Negatives:** This approach might increase the number of false negatives, but the predicted C2 values have a high chance of being actual C2.
+- **False-Negatives:** This approach might increase the number of false negatives, but the predicted C2 values are more likely to be a true positive C2.
 - **Extreme Values:** This strategy is effective because A1 and C2 are the extreme values.
 - **CamemBERT Model Adjustment:** Only the C2 values will be kept for the initial model adjustment.
 
@@ -152,7 +150,7 @@ Taking the assumption that the data are more or less equally weighted like in th
 
 ### 📝 Further Insights
 
-We noticed a findings when using the CamemBERT model on the C label of the ABC classification:
+What we noticed when using the CamemBERT model on the C label of the ABC classification:
 
 - **Accuracy:** Achieves 73.2% accuracy on 146 C2 labels.
 
