@@ -65,7 +65,7 @@ The pipeline present the follwing characteristics :
 - **Accuracy:** 0.505
 
  <p align="center">
-<img width="603" alt="Capture d’écran 2024-05-23 à 10 36 49" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/b873e361-25af-4cf2-a818-0f8b65e59b43">
+<img width="300" alt="Capture d’écran 2024-05-23 à 10 36 49" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/b873e361-25af-4cf2-a818-0f8b65e59b43">
 
 ## **Step 3: Data Augmentation** 📈
 
