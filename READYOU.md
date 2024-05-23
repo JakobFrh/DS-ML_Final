@@ -127,32 +127,56 @@ Taking the assumption that the data are more or less equally weighted like in th
    - Only the C2 values will be kept for the LLM adjustment.
    - Ensure any data change in the LLM is supposed to be changed.
 
-### 📈 Conclusion
 
-By focusing on the pipeline and implementing a new classification strategy, we aim to significantly improve the prediction accuracy for the extreme values A1 and C2. This method allows us to utilize a larger dataset for training, enhancing the model's performance.
 
 <p align="center">
   <img width="958" alt="Graph for different solutions" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/9bdae228-e802-4d85-a628-60fb2a2409db">
 </p>
 
 
-Using the CamemBERT model, train on the C1/C2 datas on the C label of the ABC classification gave an accuracy of 73.2% on 146 C2 labels. We also incorporated this C2 CamemBERT model  into our LLM corrector.
+### 📝 Further Insights
 
-- **Pipeline for C2 data:** Most accurate.
-- **C2 Camembert:** More accurate than Camembert on all datasets.
-- **A1/A2 classifier:** Similar situation, but LLM model for A1 data had sufficient accuracy for implementation.
+We noticed a findings when using the CamemBERT model on the C label of the ABC classification:
 
-We used our CamemBERT model corrector to refine the C2 data out of the ABC classification. With an accuracy of 74% on 145 data for A1 and 88% on 50 C2 data, we further improved our model, reaching an overall accuracy of 60.2%. Despite the computational cost, this improved accuracy justifies the approach for our Streamlit application.
+- **Accuracy:** Achieves 73.2% accuracy on 146 C2 labels.
+
+
+### 🔍 Prioritization of Predictions
+
+1. **C2 Data:**
+   - **Pipeline Prediction:** Most accurate, hence prioritized.
+   - **C2 Camembert:** Second most accurate, better than Camembert on the entire dataset.
+   
+2. **A1/A2 Classifier:**
+   - **A1 Data LLM Model:** Lacks sufficient accuracy for implementation.
+   - **Prioritization:** A1 pipeline prediction > Camembert prediction for A1.
+
+### 🚀 Methodology and Results
+
+- **LLM Corrector:** Used to extract A1 and C2 data from the ABC classification.
+- **Accuracy:**
+  - **A1 Data:** 74% on 145 data points.
+  - **C2 Data:** 88% on 50 data points.
+
+### 📈 Impact on Overall Model
+
+- **Combined Model Accuracy:** Incorporating C2 pipeline improves overall model accuracy slightly to 60.2%.
+- **Computational Cost:** The ABC classification with pipeline and Camembert increases overall accuracy by about 1% but adds significant computational power requirements.
+
+### 🤔 Conclusion
+
+Given the minimal increase in accuracy and high computational cost, we decided to stick with the simple LLM for our Streamlit application.
+
 
 <p align="center">
   <img width="1079" alt="Merged model" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/fb343d89-46c5-40fd-a101-5708e521718c">
 </p>
 
 ## **Guide of Github** 📂
-- **Model:** Model for the Streamlit application.
+- **Model:** RiBERTy final and Streamlit application models.
 - **ABC_CLASSIFICATION:** Output of the ABC classifier.
 - **CAMEMBERT:** Output of the CamemBERT classifier with 6 labels.
-- **ML_MODEL:** The overall model with all the pipelines and different classifiers.
+  
 
 ---
 
