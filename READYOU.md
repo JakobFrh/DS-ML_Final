@@ -53,16 +53,19 @@ The KNN model stands out in a different way. It tends to predict a high number o
 
 ## **Step 2: Pipeline** 🔄
 
-We implemented a pipeline to consider:
-- Number of words
-- Number of unique words
-- Number of commas
+Diving deeper into basic model we implemented a pipeline which processes text and numeric features from sentences: it transforms sentences into numerical vectors using word combinations and scales numerical values for features like word count. After preprocessing, the data is used to train a linear Support Vector Machine (SVM) model for classification tasks. We also tried to implement special character count (# »!?’`^+…) and a to take into account the different verb tense but those decrease the accuracy.  
+￼
+<img width="545" alt="Pipeline" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/f2cc8389-45c5-4940-a1b2-30c5c87a3846">
 
-We also tried to implement special character count (# »!?’`^+…) and verb tense differentiation, but these decreased the accuracy.
 
-<p align="center">
-  <img width="545" alt="Pipeline" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/f2cc8389-45c5-4940-a1b2-30c5c87a3846">
-</p>
+The pipeline present the follwing characteristics : 
+- **Precision:** 0.502
+- **Recall:**  0.504
+- **F1-Score:**  0.498
+- **Accuracy:** 0.505
+
+ <p align="center">
+<img width="603" alt="Capture d’écran 2024-05-23 à 10 36 49" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/b873e361-25af-4cf2-a818-0f8b65e59b43">
 
 ## **Step 3: Data Augmentation** 📈
 
