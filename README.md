@@ -83,12 +83,13 @@ Furthermore, we noticed that if we use LLM model on the C label of the ABC class
 We use our LLM corrector to get A1 and C2 data out of the ABC classification. With an accuracy of 74% on 145 data for A1 and an accuracy of 88% on 50 C2 data, we will then use those data to 'correct' our LLM model.  We notice that if add this on top of the C2 pipeline, this also increase by a very bit the accuracy of the overall model, reaching an overall accuracy of 60.2%. This ABC classification with pipeline and camembert increase the overall accuracy of the model by about a 1%, however it add a lot of computation power and the question : « is it worth it ? » could arise. That why we decided to stick with the simple LLM for our streamlit application.
 
 <img width="1079" alt="Merged model" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/fb343d89-46c5-40fd-a101-5708e521718c">
+
 ### 📝 Further Insights
 
-We noticed several key findings when using the LLM model on the C label of the ABC classification:
+We noticed a findings when using the CamemBERT model on the C label of the ABC classification:
 
 - **Accuracy:** Achieves 73.2% accuracy on 146 C2 labels.
-- **Incorporation:** This C2 LLM is incorporated into our LLM corrector.
+
 
 ### 🔍 Prioritization of Predictions
 
