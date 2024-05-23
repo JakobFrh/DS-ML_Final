@@ -83,6 +83,39 @@ Furthermore, we noticed that if we use LLM model on the C label of the ABC class
 We use our LLM corrector to get A1 and C2 data out of the ABC classification. With an accuracy of 74% on 145 data for A1 and an accuracy of 88% on 50 C2 data, we will then use those data to 'correct' our LLM model.  We notice that if add this on top of the C2 pipeline, this also increase by a very bit the accuracy of the overall model, reaching an overall accuracy of 60.2%. This ABC classification with pipeline and camembert increase the overall accuracy of the model by about a 1%, however it add a lot of computation power and the question : « is it worth it ? » could arise. That why we decided to stick with the simple LLM for our streamlit application.
 
 <img width="1079" alt="Merged model" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/fb343d89-46c5-40fd-a101-5708e521718c">
+### 📝 Further Insights
+
+We noticed several key findings when using the LLM model on the C label of the ABC classification:
+
+- **Accuracy:** Achieves 73.2% accuracy on 146 C2 labels.
+- **Incorporation:** This C2 LLM is incorporated into our LLM corrector.
+
+### 🔍 Prioritization of Predictions
+
+1. **C2 Data:**
+   - **Pipeline Prediction:** Most accurate, hence prioritized.
+   - **C2 Camembert:** Second most accurate, better than Camembert on the entire dataset.
+   
+2. **A1/A2 Classifier:**
+   - **A1 Data LLM Model:** Lacks sufficient accuracy for implementation.
+   - **Prioritization:** A1 pipeline prediction > Camembert prediction for A1.
+
+### 🚀 Methodology and Results
+
+- **LLM Corrector:** Used to extract A1 and C2 data from the ABC classification.
+- **Accuracy:**
+  - **A1 Data:** 74% on 145 data points.
+  - **C2 Data:** 88% on 50 data points.
+
+### 📈 Impact on Overall Model
+
+- **Combined Model Accuracy:** Incorporating C2 pipeline improves overall model accuracy slightly to 60.2%.
+- **Computational Cost:** The ABC classification with pipeline and Camembert increases overall accuracy by about 1% but adds significant computational power requirements.
+
+### 🤔 Conclusion
+
+Given the minimal increase in accuracy and high computational cost, we decided to stick with the simple LLM for our Streamlit application.
+
 
 **Guide of Github**
   -  Model : Model for the streamlit
