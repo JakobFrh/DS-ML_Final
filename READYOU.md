@@ -90,13 +90,13 @@ We implemented ABC classification to enhance our model:
   <img width="958" alt="Graph for different solutions" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/9bdae228-e802-4d85-a628-60fb2a2409db">
 </p>
 
-Furthermore, using the LLM model on the C label of the ABC classification gave an accuracy of 73.2% on 146 C2 labels. We also incorporated this C2 LLM into our LLM corrector.
+Furthermore, using the CamemBERT model, train on the C1/C2 datas on the C label of the ABC classification gave an accuracy of 73.2% on 146 C2 labels. We also incorporated this C2 CamemBERT model  into our LLM corrector.
 
 - **Pipeline for C2 data:** Most accurate.
 - **C2 Camembert:** More accurate than Camembert on all datasets.
 - **A1/A2 classifier:** Similar situation, but LLM model for A1 data had sufficient accuracy for implementation.
 
-We used our LLM corrector to refine the A1 and C2 data out of the ABC classification. With an accuracy of 74% on 145 data for A1 and 88% on 50 C2 data, we further improved our model, reaching an overall accuracy of 60.2%. Despite the computational cost, this improved accuracy justifies the approach for our Streamlit application.
+We used our CamemBERT model corrector to refine the C2 data out of the ABC classification. With an accuracy of 74% on 145 data for A1 and 88% on 50 C2 data, we further improved our model, reaching an overall accuracy of 60.2%. Despite the computational cost, this improved accuracy justifies the approach for our Streamlit application.
 
 <p align="center">
   <img width="1079" alt="Merged model" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/fb343d89-46c5-40fd-a101-5708e521718c">
