@@ -3,18 +3,15 @@
 # RiBERTy 
 #### ...when the beautiful language meets the beautiful game❤️. 
 
-This project aims to predict the difficulty of French sentences using machine learning models. With EURO 2024 approaching, we want to use our ML model to motivate and encourage people to learn French in a fun way. So, we created RiBERTy, a language difficulty prediction model that recommends YouTube videos of football players speaking French based on your proficiency level. From Zlatan Ibrahimović to Franck Ribéry, people can now learn French in a way they never thought possible. To try the app yourself, click the link below. [Get more information with our presentation video.](https://youtu.be/aeW5deuw2fg)
+This project aims to predict the difficulty of French sentences using machine learning models. With EURO 2024 approaching, we want to use our ML model to motivate and encourage people to learn French in a fun way. So, we created RiBERTy, a language difficulty prediction model that recommends YouTube videos of football players speaking French based on your proficiency level. From Zlatan Ibrahimović to Franck Ribéry, people can now learn French in a way they never thought possible. To try the app yourself, click the link below.
 
 [**RiBERTy** ...when the beautiful language meets the beautiful game 🇫🇷❤️⚽️.]( https://ducfruhauf.streamlit.app)
 
-To give you more insights into the development process of the RiBERTy model, we've created this README. In five chapters, it describes and evaluates the different ML models we tested to improve our prediction accuracy.
-
-We initially had access to 4,800 labeled French sentences for training our models. The test dataset included 1,200 sentences, for which we needed to predict the difficulty in the end. Enjoy!!! 
-
+To give you more insights into the development process of the RiBERTy model, we've created this README and a [Model presentation video](https://youtu.be/aeW5deuw2fg). In five chapters, this README describes and evaluates the different ML models we tested to improve our prediction accuracy. Enjoy!!!
 
 ## **Step 1: Discovery** 🕵️‍♂️
 
-To predict the difficulty of French sentences, we experimented with several basic machine learning models. The performance of these models was evaluated using four key metrics: **Precision, Recall, F1-Score, and Accuracy**, as shown in the table below.
+To predict the difficulty of French sentences, we experimented with several basic machine learning models. The performance of these models was evaluated using four key metrics: **Precision, Recall, F1-Score, and Accuracy**, as shown in the table below. We initially had access to 4,800 labeled French sentences for training our models. The test dataset included 1,200 sentences, for which we needed to predict the difficulty in the end. 
 
 For preprocessing, we used a TF-IDF vectorizer from the sklearn package. Interestingly, we discovered that removing stop words actually decreased the accuracy for some models, specifically Logistic Regression and K-Nearest Neighbors. We found that using an n-gram range of (1, 2) yielded the best accuracy. Apart from this adjustment, we relied on the default parameters for our models. 
 
@@ -190,4 +187,3 @@ Given the minimal increase in accuracy and high computational cost, we decided t
 - **Model:** RiBERTy final and Streamlit application models.
 - **ABC_CLASSIFICATION:** Output of the ABC classifier.
 - **CAMEMBERT:** Output of the CamemBERT classifier with 6 labels.
-  
