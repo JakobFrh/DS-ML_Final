@@ -105,78 +105,32 @@ We then explored large language models, amongst the possible llm's we decided to
 
 ## **Step 5: Merging Different Ideas** 🤝
 
-### 📝 Overview
+
+For understanding reasons let's do a list of our models names : 
+
+- **Initial Model:** is our Camembert model train on the whole dataset
+- **ABC Classifier:** is our Camembert model train on the whole dataset with only three labels (A, B or C)
+- **Pipeline:**  is our pipeline model to predict A1 and C2 values on the pre-label A & C from ABC Classifier
+- **CamemBERT C2** is our camemBERT model to predict C2 values on the pre-label A & C from ABC Classifier
+
+
 
 Under the assumption that in terms of difficulty the sentences in the test dataset are roughly equally distributed as in the train dataset, we noticed that the Camembert model is more cautious with the extreme values A1/C2. While the pipeline results were excellent with these two categories, we decided to focus on the pipeline and try to improve its efficiency on A1/C2 predictions.
 
-### 🚀 Improvements and Adjustments
+We decided to focus on the pipeline and we try to improve it's efficieny on A1/C2 predictions. We mentionne before that we have try unsuccessfully data augmentation, however we had the idea of a small trick. To virtually increased the data. Instead of using CamemBERT on 6 labels we only train it on A, B or C label, allowing us to have 4800 data for 3 labels. 
 
-1. **Initial Observations:**
-   - **Camembert Model:** Predict A1/C2 values more cautiously with relatively lower representation of these labels (graph 1).
-   - **Pipeline Model:** Has an high accuracy with A1/C2 predictions.
+With the new **ABC classification** we now train our **pipeline model** to recognize A1 from A2 in the A label and C2 from C1 in the C label. Since we want to have a prediction as accurate as possible we use the whole dataset to train our model. By relabelling all the no-C2/ data C1, we train on a larger dataset than if we used only the C1/C2 data to train the pipeline.
 
-2. **Decision:**
-   - Focus on the pipeline to enhance A1/C2 predictions.
-   
-3. **New Strategy:**
-   - Tried data augmentation without success.
-   - Implement a small trick to virtually increase the data.
-   - Instead of using LLM on 6 labels, train it on A, B, or C labels, resulting in 4800 data points for 3 labels.
-
-### 🛠️ Methodology
-
-1. **ABC Classification:**
-   - Train the pipeline model to recognize A1 from A2 within the A label and C2 from C1 within the C label.
-
-2. **Training Process:**
-   - Use the entire dataset to train the model.
-   - Re-label all the training data as C1 except for the C2 data, allowing for a larger dataset for training.
-
-3.  **Considerations**
-
-- **False-Negatives:** This approach might increase the number of false negatives, but the predicted C2 values are more likely to be a true positive C2.
-- **Extreme Values:** This strategy is effective because A1 and C2 are the extreme values.
-- **CamemBERT Model Adjustment:** Only the C2 values will be kept for the initial model adjustment.
-
-
+This approach might increase the number of false negatives, but the predicted C2 values are more likely to be a true positive C2. This strategy is effective because A1 and C2 are the extreme values. Taking into account that we will only keep the A1/C2 values for the initial model adjustement, our main concern is to have as few false positives as possible. 
 
 <p align="center">
   <img width="958" alt="Graph for different solutions" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/9bdae228-e802-4d85-a628-60fb2a2409db">
 </p>
 
+We noticed that if we use CamemBERT on the C label of the ABC classification gives an accuracy of 73,2% on 146 C2 label. We then also incorporte this **CamemBERT C2** model into our extrem values corrector. On the predictions of C2 data the pipeline predictions are the best and are prioritze over the second more accurate model which is the C2 Camembert. This model is also more correct than the initial model on C2 values. Regarding the A1/A2 classifier, the situation is the same, except that the CameBERT for A1 data does not have a suffisent accuracy to be implemented. Therefore we have : A1 pipeline prediction > Camembert prediction for A1.
 
-### 📝 Further Insights
+We use our extrem values corrector to get A1 and C2 data out of the ABC classification. This ABC classification with pipeline and camembert increase the overall accuracy of the model by about a 1%, however it add a lot of computation power and the question : « is it worth it ? » could arise. Given the minimal increase in accuracy and high computational cost, we decided to stick with the simple LLM for our Streamlit application.
 
-What we noticed when using the CamemBERT model on the C label of the ABC classification:
-
-- **Accuracy:** Achieves 73.2% accuracy on 146 C2 labels.
-
-
-### 🔍 Prioritization of Predictions
-
-1. **C2 Data:**
-   - **Pipeline Prediction:** Most accurate, hence prioritized.
-   - **C2 Camembert:** Second most accurate, better than Camembert on the entire dataset.
-   
-2. **A1/A2 Classifier:**
-   - **A1 Data LLM Model:** Lacks sufficient accuracy for implementation.
-   - **Prioritization:** A1 pipeline prediction > Camembert prediction for A1.
-
-### 🚀 Methodology and Results
-
-- **LLM Corrector:** Used to extract A1 and C2 data from the ABC classification.
-- **Accuracy:**
-  - **A1 Data:** 74% on 145 data points.
-  - **C2 Data:** 88% on 50 data points.
-
-### 📈 Impact on Overall Model
-
-- **Combined Model Accuracy:** Incorporating C2 pipeline improves overall model accuracy slightly to 60.2%.
-- **Computational Cost:** The ABC classification with pipeline and Camembert increases overall accuracy by about 1% but adds significant computational power requirements.
-
-### 🤔 Conclusion
-
-Given the minimal increase in accuracy and high computational cost, we decided to stick with the simple LLM for our Streamlit application.
 
 
 <p align="center">
