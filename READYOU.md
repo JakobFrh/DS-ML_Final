@@ -69,6 +69,8 @@ The pipeline present the follwing characteristics :
 
 ## **Step 3: Data Augmentation** 📈
 
+Data augmentation is a technique used to create new, slightly modified versions of existing data to increase the amount of training material. In the context of our model with only 4,800 French sentences, it helps the program learn better by providing more varied examples. This makes the model more accurate at determining the difficulty level of new French sentences.
+
 We tried various data augmentation techniques:
 - **Back translation:** Not kept due to high computation costs.
 - **Synonyms:** Decreased model accuracy.
