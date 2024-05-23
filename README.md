@@ -52,6 +52,14 @@ Diving deeper into basic model we implemented a pipeline where we take into acco
 <img width="545" alt="Pipeline" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/f2cc8389-45c5-4940-a1b2-30c5c87a3846">
 
 
+The pipeline present the follwing characteristics : 
+- **Precision:** 
+- **Recall:** 
+- **F1-Score:** 
+- **Accuracy:**
+
+
+
 **Step 3 : Data augmentation**
 
 We try to augmente the data by using several different techniques. We can mention here back translation that we didn’t keep because of very high computation costs, synonyms decrease the accuracy of the mode, GPT3.5 API really gave poor sentences variety that decreased the model accuracy as well. Therefore we decided not to try further on data augmentation. 
