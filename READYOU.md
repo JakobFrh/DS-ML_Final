@@ -9,7 +9,7 @@ To build the model, we used a training dataset of 4800 words and a test dataset 
 
 ## **Step 1: Discovery** 🕵️‍♂️
 
-The first step involved exploring basic models like Linear Regression, Decision Tree, and Random Forest. These models showed overall poor accuracy but performed surprisingly well with extreme values such as A1 or C2. We experimented further with:
+The first step involved exploring basic models that were the most accurate to use for our application. Therefore, we considered Logistic Regression, K-Nearest Neighbors, Decision Tree and Random Forest. These models showed overall poor accuracy (meaning less than 50 percent) but performed surprisingly well with extreme values such as A1 or C2. We experimented further with:
 
 - **Stop words removal:** Decreased accuracy.
 - **Lemmatization, bi-gram, and tri-gram:** Adding bi-gram to the tokenizer was the best option.
