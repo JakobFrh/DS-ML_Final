@@ -51,6 +51,8 @@ To gain deeper insights, we should examine some confusion matrices. Unsurprising
 
 The KNN model stands out in a different way. It tends to predict a high number of sentences (from all labels) as C1. This suggests that many sentences share similarities, after being vectorized, with those classified as C1, leading to frequent misclassification as C1.
 
+
+
 ## **Step 2: Pipeline** 🔄
 
 Diving deeper into basic model we implemented a pipeline which processes text and numeric features from sentences: it transforms sentences into numerical vectors using word combinations and scales numerical values for features like word count. After preprocessing, the data is used to train a linear Support Vector Machine (SVM) model for classification tasks. We also tried to implement special character count (# »!?’`^+…) and a to take into account the different verb tense but those decrease the accuracy.  
