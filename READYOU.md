@@ -8,6 +8,9 @@ To access the app and try it yourself, click the link below.
 
 [RiBERTy ...when the beautiful language meets the beautiful game ⚽️ 🇫🇷.]( https://ducfruhauf.streamlit.app)
 
+To get further insights into the development process of the RiBERTy model, we created this README. In 5 chapters, it describes and assesses the different ML models we tested to improve the accuracy of our predictions. 
+The accessible data to train our models was originally restricted to 4800 labelled French sentences. The test dataset included 1200, which difficulty needed to be predicted in the end. 
+
 
 ## **Step 1: Discovery** 🕵️‍♂️
 
