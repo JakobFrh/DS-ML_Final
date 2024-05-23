@@ -29,7 +29,7 @@ For preprocessing, we used a TF-IDF vectorizer from the sklearn package. Interes
 By fine-tuning our preprocessing techniques and carefully selecting model parameters, we aimed to achieve the highest possible accuracy in predicting the difficulty levels of French sentences.
 
 <p align="center">
-  <img width="600" alt="Bildschirmfoto 2024-05-23 um 00 12 14" src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/0e80e4e5-1d5b-4f7b-99b1-ff27e9210f97">
+  <img width="600" alt="Bildschirmfoto 2024-05-23 um 10 45 13" src="https://github.com/JakobFrh/DS-ML_Final/assets/152393307/fe9ed272-ba92-406e-9a90-d9ba86834d26">
 </p>
 
 Looking at the results table, it is clear that **Logistic Regression** yields the best results across all metrics, with significantly higher accuracy than the other models. This superior performance can be attributed to the model’s ability to effectively consider factors such as sentence length, the occurrence of certain words, and other relevant features to predict the difficulty of new sentences.
