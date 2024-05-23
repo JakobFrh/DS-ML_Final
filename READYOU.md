@@ -9,12 +9,6 @@ To build the model, we used a training dataset of 4800 words and a test dataset 
 
 ## **Step 1: Discovery** 🕵️‍♂️
 
-The first step involved exploring basic models that were the most accurate to use for our application. Therefore, we considered Logistic Regression, K-Nearest Neighbors, Decision Tree and Random Forest. These models showed overall poor accuracy (meaning less than 50 percent) but performed surprisingly well with extreme values such as A1 or C2. We experimented further with:
-
-- **Stop words removal:** Decreased accuracy.
-- **Lemmatization, bi-gram, and tri-gram:** Adding bi-gram to the tokenizer was the best option.
-- **Model transition:** Moving from Linear Regression to Support Vector Machine (SVM) with SVC (Support Vector Classifier) improved accuracy to 47.1%.
-
 To predict the difficulty of French sentences, we experimented with several basic machine learning models. The performance of these models was evaluated using four key metrics: **Precision, Recall, F1-Score, and Accuracy**, as shown in the table below.
 
 For preprocessing, we used a TF-IDF vectorizer from the sklearn package. Interestingly, we discovered that removing stop words actually decreased the accuracy for some models, specifically Logistic Regression and KNN. We found that using an n-gram range of (1, 2) yielded the best accuracy. Apart from this adjustment, we relied on the default parameters for our models.
@@ -54,13 +48,13 @@ The KNN model stands out in a different way. It tends to predict a high number o
 ### **Other Models** 🤖
 
 *Support Vector Machine*:
-Since the logistic regression was most successful amongst the basic models we tested, we decided to continue with a model that is able to differentiate features in a high dimensional space. Therefore we went for the SVC algorithm as a Support Vector Machine. It turned out that the parameter adjustments kernel = 'linear' and max_iterations = 100000 provided us with the highest values for the considered metrics.
+Since the logistic regression was most successful amongst the basic models we tested, we decided to continue with a model that is able to differentiate features in a high dimensional space. Therefore we went for the SVC algorithm as a Support Vector Machine. It turned out that the parameter adjustments *kernel = 'linear'* and *max_iterations = 100000* provided us with the highest values for the considered metrics.
 
 ## **Step 2: Pipeline** 🔄
 
 Diving deeper into basic model we implemented a pipeline which processes text and numeric features from sentences: it transforms sentences into numerical vectors using word combinations and scales numerical values for features like word count. After preprocessing, the data is used to train a linear Support Vector Machine (SVM) model for classification tasks. We also tried to implement special character count (# »!?’`^+…) and a to take into account the different verb tense but those decrease the accuracy.  
 ￼ <p align="center">
-<img width="545" alt="Pipeline" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/f2cc8389-45c5-4940-a1b2-30c5c87a3846">
+<img width="600" alt="Pipeline" src="https://github.com/JakobFrh/DS-ML_Final/assets/161482199/f2cc8389-45c5-4940-a1b2-30c5c87a3846">
 
 
 The pipeline present the follwing characteristics : 
