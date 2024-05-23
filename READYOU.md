@@ -17,7 +17,17 @@ We initially had access to 4,800 labeled French sentences for training our model
 To predict the difficulty of French sentences, we experimented with several basic machine learning models. The performance of these models was evaluated using four key metrics: **Precision, Recall, F1-Score, and Accuracy**, as shown in the table below.
 
 For preprocessing, we used a TF-IDF vectorizer from the sklearn package. Interestingly, we discovered that removing stop words actually decreased the accuracy for some models, specifically Logistic Regression and K-Nearest Neighbors. We found that using an n-gram range of (1, 2) yielded the best accuracy. Apart from this adjustment, we relied on the default parameters for our models. 
-`this is inline code`
+
+`vectorizer = TfidfVectorizer(
+    #max_df=0.95,         # Ignore terms that appear in more than 95% of the documents
+    min_df=2,            # Ignore terms that appear in fewer than 2 documents
+    ngram_range=(1, 2),  # Use unigrams and bigrams
+    #stop_words= french_stop_words, # Remove french stop words
+    max_features=5000,   # Limit the number of features to the 5000 most frequent terms
+    use_idf=True,        # Enable inverse-document-frequency reweighting
+    smooth_idf=True,     # Smooth idf weights by adding one to document frequencies
+    sublinear_tf=True    # Apply sublinear term frequency scaling
+)`
 
 ### **Metrics Overview** 📊
 
